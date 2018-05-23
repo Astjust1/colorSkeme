@@ -1,0 +1,17 @@
+{
+  "name": "colorskemeserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-server": "nodemon ./server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/vision": "^0.19.0",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3"
+  }
+}
