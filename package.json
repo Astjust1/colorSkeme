@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@google-cloud/vision": "^0.19.0",
+    "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
@@ -21,7 +22,8 @@
     "express": "^4.16.3",
     "inline-svg-react": "^0.1.8",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "react-dropzone": "^4.2.10"
   },
   "devDependencies": {
     "babel-loader": "^7.1.4",
