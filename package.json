@@ -1,5 +1,5 @@
 {
-  "name": "colorskemeserver",
+  "name": "colorskeme",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,9 @@
   "dependencies": {
     "@google-cloud/vision": "^0.19.0",
     "dotenv": "^5.0.1",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4"
   }
 }
