@@ -20,7 +20,6 @@
     "dotenv": "^5.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
-    "inline-svg-react": "^0.1.8",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-dropzone": "^4.2.10"
@@ -28,10 +27,7 @@
   "devDependencies": {
     "babel-loader": "^7.1.4",
     "css-loader": "^0.28.11",
-    "file-loader": "^1.1.11",
-    "raw-loader": "^0.5.1",
     "react-svg-loader": "^2.1.0",
-    "svg-inline-loader": "^0.8.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4"
   }
