@@ -3,7 +3,7 @@ const visionML = require('@google-cloud/vision');
 const client = new visionML.ImageAnnotatorClient({
     keyFilename: process.env.SECRET_PATH
 });
-const constants = require('../../constants');
+const constants = require('../../../constants');
 const path = require('path');
 const buildDominantPallette = (colorArray)=>{
     //while PalleteSize < 5
@@ -45,7 +45,7 @@ exports.getPallette = (req,res,next) =>{
 }
 
 exports.test = (req,res,next) =>{
-    return client.imageProperties(`${constants.assetPath}/test2.png`)
+    return client.imageProperties(`${constants.serverAssetPath}/test2.png`)
         .then((response) => {
             const colors = response[0].imagePropertiesAnnotation.dominantColors.colors;
             //console.log(colors);
