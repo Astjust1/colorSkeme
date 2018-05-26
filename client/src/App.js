@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import PalletteItem from './Components/PalletteItem';
 import Header from './Components/Header';
-import Input from './Components/Input';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { isString } from 'util';

@@ -5,8 +5,10 @@ const mlRouter = require('./routes/mlCloud');
 const constants = require('../constants');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
+const cors = require('cors');
 
 app.use(fileUpload());
+app.use(cors());
 
 app.use(bodyParser.json({
     limit: '50mb'
