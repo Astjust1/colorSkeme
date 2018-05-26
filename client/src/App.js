@@ -39,8 +39,8 @@ class App extends Component {
       data.append('fileName', file.name);
       axios.post('/ML/getPallette', data).then((response) => {
        // console.log(this(response.data));
-       console.log(this);
-        console.log(response.data);
+       //console.log(this);
+        //console.log(response.data);
         this.setState({
           colors: response.data
         });

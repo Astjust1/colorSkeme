@@ -2,8 +2,8 @@ import PalletteItem from './PalletteItem';
 import React, {Component} from 'react';
 import { isString } from 'util';
 //import {Rectangle} from 'react-rough';
-import {Rectangle} from './ReactRough';
-
+import {Rectangle, Rect} from './ReactRough';
+import ReactDOM from 'react-dom'
 
 export default class ColorPallette extends Component{
         constructor(props){
@@ -11,6 +11,10 @@ export default class ColorPallette extends Component{
             this.state ={
                 colors:this.props.colors
             }
+        }
+
+        componentDidUpdate(){
+           //console.log(this);
         }
 
         componentWillReceiveProps(newProps){
@@ -35,13 +39,13 @@ export default class ColorPallette extends Component{
             return(
                 <ul>
                 {
-                    (isString(this.state.colors[0]) || this.state.colors.map((color)=>{
+                    (isString(this.state.colors[0]) || this.state.colors.map((color,index)=>{
                          let options = {
                               // x, y, width, height
                              fill: this.makeRGB(color),
                              fillWeight: 2.5
                          };
-                        return <Rectangle width={200} height={200} points={[10, 10, 200, 200]} data={options}/>
+                        return <Rect key={index} width={200} height={200} points={[10, 10, 200, 200]} data={options}/>
                     }))
                 }
                 </ul>

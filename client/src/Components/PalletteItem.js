@@ -1,4 +1,4 @@
-import { Rectangle, ReactRough } from 'react-rough';
+import { Rectangle,Rect, ReactRough } from 'react-rough';
 import React ,{Component} from 'react';
 
 
