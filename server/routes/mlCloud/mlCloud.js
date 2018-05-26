@@ -28,10 +28,18 @@ const getAndRemoveMostDominantColor = (colorArray)=>{
     return maxColor;
 };
 exports.getPallette = (req,res,next) =>{
-    return client.imageProperties({
-            content: req.body.buffer
-        })
+    //console.log(req.body);
+   // console.log(req.files);
+    
+    console.log(req.files);
+   // let buf = new Uint8Array(req.body.image.preview);
+   // console.log(buf);
+    //console.log(image);
+    return client.imageProperties({image:{
+        content: req.files.file.data
+    }})
         .then((response) => {
+            console.log(response);
             const colors = response[0].imagePropertiesAnnotation.dominantColors.colors;
 
             let colorpalette = buildDominantPallette(colors);
@@ -45,7 +53,7 @@ exports.getPallette = (req,res,next) =>{
 }
 
 exports.test = (req,res,next) =>{
-    return client.imageProperties(`${constants.serverAssetPath}/test2.png`)
+    return client.imageProperties({source:`${constants.serverAssetPath}/base64.txt`})
         .then((response) => {
             const colors = response[0].imagePropertiesAnnotation.dominantColors.colors;
             //console.log(colors);
