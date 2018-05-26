@@ -27,6 +27,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
+    "nodemon": "^1.17.5",
     "pako": "^1.0.6",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -41,8 +42,8 @@
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4"
   },
-    "engines": {
-      "node": "9.11.1",
-      "npm": "6.0.1"
+  "engines": {
+    "node": "9.11.1",
+    "npm": "6.0.1"
   }
 }
