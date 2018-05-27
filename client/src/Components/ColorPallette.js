@@ -45,7 +45,9 @@ export default class ColorPallette extends Component{
                              fill: this.makeRGB(color),
                              fillWeight: 2.5
                          };
-                        return <Rect key={index} width={200} height={200} points={[10, 10, 200, 200]} data={options}/>
+                        return <div><Rect key={index} width={200} height={200} points={[10, 10, 200, 200]} data={options}/>
+                        <p>{this.makeRGB(color)}</p>
+                        </div>
                     }))
                 }
                 </ul>

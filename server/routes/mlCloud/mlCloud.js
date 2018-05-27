@@ -1,6 +1,10 @@
-//require('dotenv').config();//
+
+if(process.env.NODE_ENV !== 'production'){
+require('dotenv').config();//
+}
+
 const visionML = require('@google-cloud/vision');
-console.log(JSON.parse(process.env.GCLOUD_CREDS))
+//console.log(JSON.parse(process.env.GCLOUD_CREDS))
 const client = new visionML.ImageAnnotatorClient({
     credentials: JSON.parse(process.env.GCLOUD_CREDS)
 });
@@ -40,7 +44,7 @@ exports.getPallette = (req,res,next) =>{
         content: req.files.file.data
     }})
         .then((response) => {
-            console.log(response);
+            //console.log(response);
             const colors = response[0].imagePropertiesAnnotation.dominantColors.colors;
 
             let colorpalette = buildDominantPallette(colors);

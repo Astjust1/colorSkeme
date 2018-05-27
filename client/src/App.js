@@ -42,7 +42,9 @@ class App extends Component {
         this.setState({
           colors: response.data
         });
+        window.URL.revokeObjectURL(file.preview);
         acceptedFile = [];
+        console.log(acceptedFile);
       }).catch((err) => {
         console.log(err);
       })
@@ -68,9 +70,7 @@ class App extends Component {
                     if (isDragReject) {
                     return "This file is not authorized";
                     }
-                    return acceptedFiles.length || rejectedFiles.length
-                    ? `Processing File!`
-                    : "Drop an image to get your color skeme!";
+                    return  "Click to add or drag and drop an image!";
                 }}
             </Dropzone>
             <ColorPallette colors={this.state.colors}/>
