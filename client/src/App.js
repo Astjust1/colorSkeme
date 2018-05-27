@@ -4,6 +4,8 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { isString } from 'util';
 import ColorPallette from './Components/ColorPallette';
+import {loadProgressBar} from 'axios-progress-bar';
+import 'axios-progress-bar/dist/nprogress.css';
 const divStyle = {
   textAlign:'center'
 }
@@ -16,6 +18,7 @@ const style = {
   borderStyle: 'dashed',
   borderRadius: 5
 }
+loadProgressBar();
 class App extends Component {
   constructor(props){
     super(props);
