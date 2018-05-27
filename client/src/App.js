@@ -4,6 +4,8 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { isString } from 'util';
 import ColorPallette from './Components/ColorPallette';
+import {loadProgressBar} from 'axios-progress-bar';
+import 'axios-progress-bar/dist/nprogress.css';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/genie.css';
@@ -19,6 +21,7 @@ const style = {
   borderStyle: 'dashed',
   borderRadius: 5
 }
+loadProgressBar();
 class App extends Component {
   constructor(props){
     super(props);
@@ -81,6 +84,7 @@ class App extends Component {
     }
     return colorObj;
   }
+
 
   render() {
     return (

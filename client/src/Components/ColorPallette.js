@@ -30,6 +30,10 @@ export default class ColorPallette extends Component{
             return colorObj;
         }
 
+        makeColorString(colorObj) {
+            return `Red: ${colorObj.red}, Green: ${colorObj.green}, Blue: ${colorObj.blue}`;
+        }
+
 
         render(){
             let pallettes = (isString(this.state.colors[0])) || this.state.colors.map( (colorObj,index)=>{
@@ -45,7 +49,7 @@ export default class ColorPallette extends Component{
                              fillWeight: 2.5
                          };
                         return <div key={index*2}><Rect key={index} width={200} height={200} points={[10, 10, 200, 200]} data={options}/>
-                        <p key={index+3}>{this.makeRGB(color)}</p>
+                        <p key={index+3}>{this.makeColorString(color)}</p>
                         </div>
                     }))
                 }
