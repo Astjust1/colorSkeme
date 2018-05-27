@@ -4,8 +4,9 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { isString } from 'util';
 import ColorPallette from './Components/ColorPallette';
-import {loadProgressBar} from 'axios-progress-bar';
-import 'axios-progress-bar/dist/nprogress.css';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 const divStyle = {
   textAlign:'center'
 }
@@ -18,7 +19,6 @@ const style = {
   borderStyle: 'dashed',
   borderRadius: 5
 }
-loadProgressBar();
 class App extends Component {
   constructor(props){
     super(props);
@@ -32,16 +32,30 @@ class App extends Component {
     this.setState({colors: data});
   }
 
-  onDrop(acceptedFile) {
+  onDrop(acceptedFile,rejectedFiles) {
       //shorthand incase more than one file is uploaded
+     if(acceptedFile.length){
+       Alert.success('Successful Upload! Hang tight for your Color Skeme',{
+         position: 'top',
+         effect: 'genie',
+         timeout: 1500
+       })
+     }
       const file = acceptedFile[0];
+      console.log(file);
+      if (file.size > 10485760){
+        Alert.error('That image is too big, please try a smaller file.',{
+          position: 'top',
+          effect: 'genie'
+        });
+        window.URL.revokeObjectURL(file.preview);
+        acceptedFile = [];
+        return;
+      }
       const data = new FormData();
       data.append('file', file);
       data.append('fileName', file.name);
       axios.post('/ML/getPallette', data).then((response) => {
-       // console.log(this(response.data));
-       //console.log(this);
-        //console.log(response.data);
         this.setState({
           colors: response.data
         });
@@ -50,6 +64,11 @@ class App extends Component {
         console.log(acceptedFile);
       }).catch((err) => {
         console.log(err);
+        Alert.error('There was an error processing your image. Please try again',{
+          position: 'top',
+          effect: 'genie',
+          timeout:1000
+        })
       })
     }
   
@@ -77,6 +96,7 @@ class App extends Component {
                 }}
             </Dropzone>
             <ColorPallette colors={this.state.colors}/>
+            <Alert stack={{limit:1}}/>
       </div>
     );
   }

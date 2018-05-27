@@ -2,8 +2,7 @@ import PalletteItem from './PalletteItem';
 import React, {Component} from 'react';
 import { isString } from 'util';
 //import {Rectangle} from 'react-rough';
-import {Rectangle, Rect} from './ReactRough';
-import ReactDOM from 'react-dom'
+import {Rect} from './ReactRough';
 
 export default class ColorPallette extends Component{
         constructor(props){
@@ -45,8 +44,8 @@ export default class ColorPallette extends Component{
                              fill: this.makeRGB(color),
                              fillWeight: 2.5
                          };
-                        return <div><Rect key={index} width={200} height={200} points={[10, 10, 200, 200]} data={options}/>
-                        <p>{this.makeRGB(color)}</p>
+                        return <div key={index*2}><Rect key={index} width={200} height={200} points={[10, 10, 200, 200]} data={options}/>
+                        <p key={index+3}>{this.makeRGB(color)}</p>
                         </div>
                     }))
                 }
