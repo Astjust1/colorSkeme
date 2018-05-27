@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 const visionML = require('@google-cloud/vision');
 console.log(JSON.parse(process.env.GCLOUD_CREDS))
 const client = new visionML.ImageAnnotatorClient({
