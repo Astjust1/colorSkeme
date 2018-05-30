@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const constants = require('./constants');
+const UglifyJs = require('uglifyjs-webpack-plugin');
 
 module.exports ={
     entry: './client/src/index.js',
@@ -29,5 +30,10 @@ module.exports ={
                 loader: 'react-svg-loader'
             }
         }]
-    }
+    },
+    plugins:[
+        new UglifyJs({
+            test: /.(jsx|js)?$/
+        })
+    ]
 }

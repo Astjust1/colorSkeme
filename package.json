@@ -7,8 +7,8 @@
     "start-test": " export NODE_ENV='development' && nodemon ./server/index.js",
     "start-prod": "export NODE_ENV='production' && nodemon ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-test": "webpack ---mode=development",
-    "build": "webpack --mode=production",
+    "build-test": "webpack --mode=development",
+    "build": "webpack  --optimize-minimize --mode=production",
     "start": "npm run build && npm run start-prod",
     "start-dev": "npm run build-test && npm run start-test"
   },
@@ -42,6 +42,7 @@
     "babel-loader": "^7.1.4",
     "css-loader": "^0.28.11",
     "react-svg-loader": "^2.1.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4"
   },

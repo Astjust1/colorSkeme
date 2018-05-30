@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { isString } from 'util';
@@ -13,9 +14,9 @@ const divStyle = {
   textAlign:'center'
 }
 const style = {
-  position: 'relative',
-  width: 300,
-  height: 200,
+  margin: 'auto',
+  width: '50%',
+  height: '50%',
   borderWidth: 2,
   borderColor: 'rgb(102,102,102)',
   borderStyle: 'dashed',
@@ -100,7 +101,9 @@ class App extends Component {
                 }}
             </Dropzone>
             <ColorPallette colors={this.state.colors}/>
+
             <Alert stack={{limit:1}}/>
+      <Footer title="Color Skeme" mainColor={this.makeRGB(this.state.colors[0])} secondaryColor={this.makeRGB(this.state.colors[2])}/>
       </div>
     );
   }
